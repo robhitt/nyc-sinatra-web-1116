@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Create New Figure</title>
+  </head>
+  <body>
+    <h1>Create your new figure here :)</h1>
+
+    <!-- Form Begins -->
+    <form method="post" action="/figures">
+
+      <!-- Name of Figure -->
+      <label for="name">Figure Name</label>
+      <input id="figure_name" type="text" name="figure[name]">
+
+      <br><br>
+
+      <!-- Figure Title -->
+      <label for="title">Figure Title(s)</label>
+      <ul style="list-style: none">
+        <% @titles.each do |title| %>
+          <li>
+            <input id="title_<%= title.id %>" type="checkbox" name="figure[title_ids][]" value="<%=title.id%>">
+            <%= title.name %>
+          </li>
+        <% end %>
+      </ul>
+
+      <!-- Existing Landmark Name(s) -->
+      <label for="landmark">Landmark Name</label>
+      <ul style="list-style: none">
+          <% @landmarks.each do |landmark| %>
+          <li>
+            <input id="landmark_<%= landmark.id %>" type="checkbox" name="figure[landmark_ids][]" value="<%=landmark.id%>">
+            <%= landmark.name %>
+          </li>
+          <% end %>
+      </ul>
+
+
+      <!-- Create New Landmark -->
+      <label for="new_landmark">New Landmark</label>
+      <input id="new_landmark" type="text" name="landmark[name]">
+
+
+      <br><br>
+
+
+      <!-- Create New Title -->
+      <label for="new_title">New Title</label>
+      <input id="new_title" type="text" name="title[name]">
+
+
+      <!-- Submit -->
+      <p><input id="submit" type="submit" value="Create New Figure"></p>
+
+
+    </form>
+    <!-- Form Ends -->
+
+  </body>
+</html>

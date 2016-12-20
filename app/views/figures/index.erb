@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Figures Index Page</title>
+  </head>
+  <body>
+    <h1>Figures Index Page</h1>
+
+    <ol>
+    <% @figures.each do |figure| %>
+      <li>
+        <h2><%= figure.name %></h2><br>
+      </li>
+    <% end %>
+    </ol>
+
+  </body>
+</html>
